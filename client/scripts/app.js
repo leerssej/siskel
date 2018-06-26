@@ -58,7 +58,8 @@ var MovieView = Backbone.View.extend({
                         </div>'),
 
   initialize: function() {
-    // your code here
+    // appSpect 72: modelView = new MovieView({model: model});
+    this.model.on('change', this.render, this);
   },
 
   events: {
@@ -66,8 +67,7 @@ var MovieView = Backbone.View.extend({
   },
 
   handleClick: function() {
-    // your code here
-    
+    this.model.toggleLike();
   },
 
   render: function() {
@@ -80,7 +80,8 @@ var MovieView = Backbone.View.extend({
 var MoviesView = Backbone.View.extend({
 
   initialize: function() {
-    this.on('change', this.sortByField, this);
+    // update the event listener to listen for sort()
+    this.collection.on('sort', this.render, this);
   },
 
   render: function() {
