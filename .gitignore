@@ -36,3 +36,7 @@ bower_components/
 
 # Swap files (for the vim users in all of us)
 /**/*.swp
+
+# apple objects
+.DS_Store
+Client/.DS_Store
